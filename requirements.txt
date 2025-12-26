@@ -1,0 +1,7 @@
+langchain
+langgraph
+langchain-openai
+pylatexenc
+arxiv
+tiktoken
+python-dotenv

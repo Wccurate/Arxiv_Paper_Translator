@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv
+env/
+venv/
+build/
+dist/
+*.egg-info/
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.xdv
+*.pdf
+# Exception: keep the final output PDF if we want, but usually ignored in source repo.
+# For this project, we might want to ignore the output directory entirely except for .gitkeep?
+# But user said "file which is usually ignored in both latex and python project". 
+# So ignore generated/aux files.
+
+# Project Specific
+output/
+logs/
+translation.log
+# Keep example inputs? input/ is not ignored.
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+
+# Test Examples
+example1/
+example2/
+
+
