@@ -1,6 +1,7 @@
 import re
 import json
 import logging
+import os
 from typing import Dict, Optional, Tuple
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
@@ -48,7 +49,8 @@ def generate_terminology(abstract: str, model_name: str = "gpt-4o") -> Dict[str,
         return {}
 
     try:
-        llm = ChatOpenAI(model=model_name, temperature=0.0)
+        base_url = os.getenv("OPENAI_BASE_URL")
+        llm = ChatOpenAI(model=model_name, temperature=0.0, base_url=base_url)
         prompt = PromptTemplate.from_template(TERMINOLOGY_PROMPT)
         chain = prompt | llm
 

@@ -73,7 +73,8 @@ def translate_node(state: TranslationState):
     terminology = json.dumps(state['terminology'], ensure_ascii=False)
     
     model_name = os.getenv("MODEL_NAME", "gpt-4o")
-    llm = ChatOpenAI(model=model_name, temperature=0.3)
+    base_url = os.getenv("OPENAI_BASE_URL")
+    llm = ChatOpenAI(model=model_name, temperature=0.3, base_url=base_url)
     
     # Construct messages directly to handle system prompt variables safely
     
@@ -102,7 +103,8 @@ def critic_node(state: TranslationState):
     translated = state['translated_chunk']
     
     model_name = os.getenv("MODEL_NAME", "gpt-4o")
-    llm = ChatOpenAI(model=model_name, temperature=0.0) # Critic needs to be strict
+    base_url = os.getenv("OPENAI_BASE_URL")
+    llm = ChatOpenAI(model=model_name, temperature=0.0, base_url=base_url) # Critic needs to be strict
     prompt = PromptTemplate.from_template(CRITIC_SYSTEM_PROMPT)
     chain = prompt | llm
     
@@ -161,7 +163,8 @@ def fixer_node(state: TranslationState):
     terminology = json.dumps(state['terminology'], ensure_ascii=False)
     
     model_name = os.getenv("MODEL_NAME", "gpt-4o")
-    llm = ChatOpenAI(model=model_name, temperature=0.2)
+    base_url = os.getenv("OPENAI_BASE_URL")
+    llm = ChatOpenAI(model=model_name, temperature=0.2, base_url=base_url)
     prompt = PromptTemplate.from_template(FIXER_SYSTEM_PROMPT)
     chain = prompt | llm
     

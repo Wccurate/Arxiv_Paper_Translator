@@ -22,6 +22,8 @@ Preserves strict LaTeX syntax, equations, tables, and citations while ensuring t
    ```bash
    OPENAI_API_KEY=your_key_here
    MODEL_NAME=gpt-5-mini
+   # Optional: For compatible providers (e.g. DeepSeek, OpenRouter)
+   OPENAI_BASE_URL=https://api.deepseek.com/v1
    ```
    (See `.env.example`)
 
