@@ -21,7 +21,7 @@ Preserves strict LaTeX syntax, equations, tables, and citations while ensuring t
 3. Set up environment variables in `.env`:
    ```bash
    OPENAI_API_KEY=your_key_here
-   MODEL_NAME=gpt-4o
+   MODEL_NAME=gpt-5-mini
    ```
    (See `.env.example`)
 
