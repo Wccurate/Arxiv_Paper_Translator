@@ -66,7 +66,17 @@ def extract_local_source(path: str, dest_dir: str):
             logger.error("Unsupported file format. Use zip or tar.gz")
             sys.exit(1)
     elif os.path.isdir(path):
-        shutil.copytree(path, dest_dir, dirs_exist_ok=True)
+        # Ignore build artifacts to prevent copying corrupted/stale files
+        shutil.copytree(
+            path, 
+            dest_dir, 
+            dirs_exist_ok=True,
+            ignore=shutil.ignore_patterns(
+                '*.aux', '*.log', '*.out', '*.toc', 
+                '*.bbl', '*.blg', '*.xdv', '*.fls', '*.fdb_latexmk', 
+                '*.synctex.gz', '__pycache__', '.DS_Store'
+            )
+        )
     else:
         logger.error(f"Path not found: {path}")
         sys.exit(1)
