@@ -22,7 +22,7 @@ dist/
 *.synctex.gz
 *.fdb_latexmk
 *.xdv
-*.pdf
+# *.pdf
 # Exception: keep the final output PDF if we want, but usually ignored in source repo.
 # For this project, we might want to ignore the output directory entirely except for .gitkeep?
 # But user said "file which is usually ignored in both latex and python project". 
